@@ -1,0 +1,4 @@
+__pycache__/
+filtered_corpusid_input.csv
+plots/*
+weights/*
