@@ -29,6 +29,10 @@ def clean_data(inp, text_feature_cols, numerical_feature_cols):
     if 'publicationDate' in numerical_feature_cols:
         inp = inp[~inp['publicationDate'].isna()]
 
+    # Substitute mode to NaN targets
+    mode = inp[TARGET_COL].mode().values[0]
+    inp[TARGET_COL] = inp[TARGET_COL].fillna(mode)
+
     return inp.reset_index(drop=True)
 
 def filter_cols(df, all_columns):
