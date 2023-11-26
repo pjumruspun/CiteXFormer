@@ -41,6 +41,10 @@ CSV_DIR = args.data_dir
 text_feature_cols = args.text_feature_cols
 numerical_feature_cols = args.numerical_feature_cols
 
+if len(numerical_feature_cols) == 1 and numerical_feature_cols[0] == "":
+    # Eliminate the no numerical bug
+    numerical_feature_cols = []
+
 device = get_device()
 
 def train(model, config, dataloader, loss_fn, optimizer, scheduler=None):
