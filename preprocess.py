@@ -117,7 +117,6 @@ def preprocess(cleaned_df, text_feature_cols, numerical_feature_cols, n, seed):
     y = selected_df[TARGET_COL].values.astype(np.int64)
 
     all_cols = all_columns(text_feature_cols, numerical_feature_cols)
-    print(all_cols)
     selected_df = filter_cols(selected_df, all_cols)
     selected_df = preprocess_numerical(selected_df, numerical_feature_cols)
 
